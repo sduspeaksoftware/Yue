@@ -9,6 +9,7 @@ public class User implements BasicInformationManager, DynamicManager, NoteManage
 	public String nickname;
 	public String sex;
 	public Date birthDate;
+	
 	@Override
 	public boolean publishNote() {
 		// TODO 自动生成的方法存根
