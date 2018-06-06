@@ -25,6 +25,7 @@
 [软件(结构)设计说明(SDD)](https://docs.qq.com/doc/BOWEda2hDwy81TegVV4ljkJQ0tfxVX2GDb9B1)
 
 ## 开发进度
+[图在此查看](https://www.zybuluo.com/rayiooo/note/1173355)
 
 ```gantt
 title “约了么”项目开发流程
@@ -40,10 +41,9 @@ section 项目实施
 section 项目验收
     发布                    :3d
     验收                    :3d
-
 ```
 
-## SimpleHttpUtils[^SimpleHttpUtils]
+## SimpleHttpUtils
 ### 案例主函数入口
 ```java
 package com.xiets.http;
@@ -117,4 +117,4 @@ public static String sendRequest(String url,
 
 
 ## 参考资料
-[^SimpleHttpUtils]:[轻量级简易 Java http 网络请求的封装: SimpleHttpUtils](https://blog.csdn.net/xietansheng/article/details/70478221)
+[轻量级简易 Java http 网络请求的封装: SimpleHttpUtils](https://blog.csdn.net/xietansheng/article/details/70478221)
