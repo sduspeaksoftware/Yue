@@ -1,8 +1,10 @@
 package client;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -11,9 +13,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import http.SimpleHttpUtils;
 
 @SuppressWarnings("serial")
 public class FrameLogin extends JFrame{
@@ -89,6 +94,56 @@ public class FrameLogin extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
-//		System.out.println("FrameLogin()");
+		// action listener add
+		this.loginBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String username = usernameText.getText();
+				String pwd = passwordText.getText();
+				String ret = "";
+				
+				try {
+					ret = SimpleHttpUtils.post(controller.host + "login.php", new String("username=" + username + "&password=" + pwd).getBytes());
+					System.out.println("username=" + username + "&password=" + pwd);
+					System.out.println("POST return: " + ret);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+				if(ret.equals("login success.")) {
+					System.out.println("µÇÂ½³É¹¦¡£");
+					Toolkit.getDefaultToolkit().beep();
+					JOptionPane.showMessageDialog(null, "µÇÂ½³É¹¦£¡", "Login success.", JOptionPane.PLAIN_MESSAGE);
+				}else {
+					System.out.println("µÇÂ½Ê§°Ü¡£");
+					Toolkit.getDefaultToolkit().beep();
+					JOptionPane.showMessageDialog(null, "µÇÂ¼Ê§°Ü£¡ÕËºÅ»òÃÜÂë´íÎó", "Login failed.", JOptionPane.WARNING_MESSAGE);
+				}
+			}
+			
+		});
+		this.registerBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String username = usernameText.getText();
+				String pwd = passwordText.getText();
+				String ret = "";
+				
+				try {
+					ret = SimpleHttpUtils.post(controller.host + "register.php", new String("username=" + username + "&password=" + pwd).getBytes());
+					System.out.println("POST return: " + ret);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+				if(ret.equals("register success.")) {
+					System.out.println("×¢²á³É¹¦¡£");
+					Toolkit.getDefaultToolkit().beep();
+					JOptionPane.showMessageDialog(null, "×¢²á³É¹¦£¡", "Register success.", JOptionPane.PLAIN_MESSAGE);
+				}else {
+					System.out.println("×¢²áÊ§°Ü¡£");
+					Toolkit.getDefaultToolkit().beep();
+					JOptionPane.showMessageDialog(null, "×¢²áÊ§°Ü£¡ÓÃ»§ÃûÒÑ±»Õ¼ÓÃ¡£", "Register failed.", JOptionPane.WARNING_MESSAGE);
+				}
+			}
+		});
 	}
 }
