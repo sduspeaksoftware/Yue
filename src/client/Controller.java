@@ -7,6 +7,7 @@ public class Controller {
 	public String host;
 	
 	public FrameLogin frameLogin;
+	public FrameMain frameMain;
 	
 	/* 构造方法 */
 	public Controller() {
@@ -15,6 +16,16 @@ public class Controller {
 	
 	/* Controller 生命周期开始 */
 	public void start() {
+		this.newFrameLogin();
+	}
+	
+	/* 登陆界面打开 */
+	public void newFrameLogin() {
 		frameLogin = new FrameLogin(this);
+	}
+	
+	/* 主界面打开 */
+	public void newFrameMain() {
+		frameMain = new FrameMain(this);
 	}
 }

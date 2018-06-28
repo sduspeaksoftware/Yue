@@ -113,6 +113,8 @@ public class FrameLogin extends JFrame{
 					System.out.println("µÇÂ½³É¹¦¡£");
 					Toolkit.getDefaultToolkit().beep();
 					JOptionPane.showMessageDialog(null, "µÇÂ½³É¹¦£¡", "Login success.", JOptionPane.PLAIN_MESSAGE);
+					controller.newFrameMain();
+					controller.frameLogin.dispose();
 				}else {
 					System.out.println("µÇÂ½Ê§°Ü¡£");
 					Toolkit.getDefaultToolkit().beep();
