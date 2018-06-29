@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.SoftBevelBorder;
 
-import SubString.SubString;
 import http.SimpleHttpUtils;
+import subString.SubString;
 
 /* 该Panel从属于FrameMain */
 @SuppressWarnings("serial")
@@ -34,6 +34,7 @@ public class PanelNoteList extends JPanel{
 	}
 	
 	public void getPage() {
+		this.removeAll();
 		String ret = "";
 		try {
 			ret = SimpleHttpUtils.get(this.frameMain.controller.host + "getNoteList.php?page=" + this.currentPage);
@@ -49,7 +50,7 @@ public class PanelNoteList extends JPanel{
 				this.add(new ListElement(this, null));
 			}
 		}
-		this.add(new ListPage(this, currentPage != 1, noteList.length < 10));
+		this.add(new ListPage(this, currentPage != 1, noteList.length == 10));
 	}
 }
 
@@ -80,7 +81,8 @@ class ListElement extends JPanel{
 			// 当前帖子被点击打开
 			this.addMouseListener(new MouseListener() {
 				public void mouseClicked(MouseEvent e) {
-					
+					listPanel.frameMain.note.set(id);
+					listPanel.frameMain.displayNote(id);
 				}
 				public void mousePressed(MouseEvent e) {}
 				public void mouseReleased(MouseEvent e) {}
@@ -106,11 +108,15 @@ class ListPage extends JPanel{
 	
 	/* last表示是否显示上一页，next表示是否显示下一页 */
 	public ListPage(PanelNoteList listPanel, boolean lastFlag, boolean nextFlag) {
-		super(new GridLayout(1, 2));
+		super(new BorderLayout());
 		this.listPanel = listPanel;
 		
 		this.lastBtn = new JButton("上一页");
 		this.nextBtn = new JButton("下一页");
+		
+		this.add(lastBtn, BorderLayout.WEST);
+		this.add(nextBtn, BorderLayout.EAST);
+		this.add(new JLabel("  "), BorderLayout.CENTER);
 		
 		this.lastBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -1,4 +1,4 @@
-package SubString;
+package subString;
 
 public class SubString {
 	/**

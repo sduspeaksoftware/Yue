@@ -5,13 +5,14 @@ package client;
  */
 public class Controller {
 	public String host;
-	
+	public User user;
 	public FrameLogin frameLogin;
 	public FrameMain frameMain;
 	
 	/* 构造方法 */
 	public Controller() {
 		host = "http://yue.rayiooo.top/";
+		this.user = new User();
 	}
 	
 	/* Controller 生命周期开始 */

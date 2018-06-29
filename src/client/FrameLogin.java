@@ -113,6 +113,7 @@ public class FrameLogin extends JFrame{
 					System.out.println("登陆成功。");
 					Toolkit.getDefaultToolkit().beep();
 					JOptionPane.showMessageDialog(null, "登陆成功！", "Login success.", JOptionPane.PLAIN_MESSAGE);
+					controller.user.username = username;
 					controller.newFrameMain();
 					controller.frameLogin.dispose();
 				}else {
