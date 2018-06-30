@@ -31,7 +31,7 @@ public class PanelSubmit extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				String ret = "";
 				try {
-					ret = SimpleHttpUtils.post(frameMain.controller.host + "submitNote.php", text.getText().getBytes());
+					ret = SimpleHttpUtils.post(frameMain.controller.host + "submitNote.php", text.getText().getBytes("utf-8"));
 					System.out.println(ret);
 					Toolkit.getDefaultToolkit().beep();
 					JOptionPane.showMessageDialog(null, ret, ret, JOptionPane.PLAIN_MESSAGE);
