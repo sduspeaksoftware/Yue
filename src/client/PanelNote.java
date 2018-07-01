@@ -42,7 +42,7 @@ public class PanelNote extends JPanel{
 		res += "发帖人：\t" + result[2] + "\n";
 		res += "时间：\t" + result[3] + "\n";
 		res += "目的地：\t" + result[4] + "\n";
-		res += "内容：\t" + result[5] +"\n";
+		res += "内容：\t\n\n" + result[5] +"\n\n";
 		if(result[6].equals("0"))
 			res += "未结帖。\n";
 		else
