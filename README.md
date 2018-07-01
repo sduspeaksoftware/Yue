@@ -24,6 +24,14 @@
 
 [软件(结构)设计说明(SDD)](https://docs.qq.com/doc/BOWEda2hDwy81TegVV4ljkJQ0tfxVX2GDb9B1)
 
+[系统测试计划书](https://docs.qq.com/doc/BOWEda2hDwy81jkV9F4gyicn1qIoDG0bRnXO2)
+
+[系统测试报告](https://docs.qq.com/doc/BOWEda2hDwy8195Ejt14R1IU0tAQnj00M4zZ4)
+
+[系统用户手册](https://docs.qq.com/doc/BOWEda2hDwy81U6V4s1JfH8L0NyNNL19VMF60)
+
+[项目开发总结报告](https://docs.qq.com/doc/BOWEda2hDwy81wQCeJ2i0rC92MzkG22S9yUL1)
+
 ## 开发进度
 [图在此查看](https://www.zybuluo.com/rayiooo/note/1173355)
 
@@ -37,7 +45,7 @@ section 项目确定
 	软件需求规格说明(SRS)		:a5, after a4, 28d
 section 项目实施
 	软件(结构)设计说明(SDD)	:2018-5-16, 14d
-	编码                    :2018-5-6, 30d
+	编码                    :2018-5-6, 50d
 section 项目验收
     发布                    :3d
     验收                    :3d
@@ -118,3 +126,6 @@ public static String sendRequest(String url,
 
 ## 参考资料
 [轻量级简易 Java http 网络请求的封装: SimpleHttpUtils](https://blog.csdn.net/xietansheng/article/details/70478221)
+
+## else
+控诉不干活的.

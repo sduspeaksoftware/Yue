@@ -35,11 +35,18 @@ public class PanelNote extends JPanel{
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
+		
 		String[] result = ret.split("<br>");
 		String res = "";
-		for(int i=0; i<result.length; i++) {
-			res += result[i] + "\n";
-		}
+		res += "标题：\t" + result[1] + "\n";
+		res += "发帖人：\t" + result[2] + "\n";
+		res += "时间：\t" + result[3] + "\n";
+		res += "目的地：\t" + result[4] + "\n";
+		res += "内容：\t" + result[5] +"\n";
+		if(result[6].equals("0"))
+			res += "未结帖。\n";
+		else
+			res += "已结帖。\n";
 		this.textArea.setText(res);
 	}
 }
