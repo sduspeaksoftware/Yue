@@ -6,6 +6,9 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/*
+ * This project was wrote by one person in a six persons' team.
+ */
 @SuppressWarnings("serial")
 public class FrameMain extends JFrame{
 	Controller controller;
